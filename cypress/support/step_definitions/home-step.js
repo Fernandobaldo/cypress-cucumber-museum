@@ -18,35 +18,34 @@ When('navigate to collection page', function () {
 })
 
 Then('I search for a painting', function (table) {
-  const { paintingName }  = table.rowsHash();
+    const { paintingName } = table.rowsHash();
   homePageOb.typePaintingName().type(paintingName)
   homePageOb.searchPainting().click()
   cy.scrollTo('top')
+})
 
+And('Should return more than {string} result', function (results) {
   cy.get('.results').invoke('text')
     .then(parseInt)
-    .should('be.greaterThan', 700)
+    .should('be.greaterThan', (parseInt(results)))
 })
 
-And('I pick the first painting', function() {
-
+And('I pick the first painting', function () {
   homePageOb.selectPainting().click()
- 
-
 })
 
-And('I validate the painting info', function(table) {
-  const { Fnummer, JHnummer, Inventarisnummer }  = table.rowsHash();
+And('I validate the painting info', function (table) {
+  const { Fnummer, JHnummer, Inventarisnummer } = table.rowsHash();
 
   cy.get('section').contains('Het Gele Huis').should('be.visible')
 
   homePageOb.validatingPainting()
-        cy.get('@fNummer')
-            .should('be.equal', Fnummer)
-        cy.get('@jhNummer')
-            .should('be.equal', JHnummer)
-        cy.get('@inventarisNummer')
-            .should('be.equal', Inventarisnummer)
-        cy.url()
-            .should('include', Inventarisnummer);
+  cy.get('@fNummer')
+    .should('be.equal', Fnummer)
+  cy.get('@jhNummer')
+    .should('be.equal', JHnummer)
+  cy.get('@inventarisNummer')
+    .should('be.equal', Inventarisnummer)
+  cy.url()
+    .should('include', Inventarisnummer);
 })
