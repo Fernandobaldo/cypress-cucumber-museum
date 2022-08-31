@@ -1,0 +1,19 @@
+{
+  "name": "gerimedica-bdd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress open"
+  },
+  "author": "Fernando G Baldo",
+  "license": "ISC",
+  "devDependencies": {
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.1.3",
+    "cypress": "^10.7.0",
+    "esbuild": "^0.14.54"
+  },
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^12.1.0"
+  }
+}
