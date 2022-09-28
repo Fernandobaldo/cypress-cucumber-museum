@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "cypress open",
-    "runOnChrome": "cypress run --browser chrome"
-
+    "test": "cypress open"
   },
   "author": "Fernando G Baldo",
   "license": "ISC",
